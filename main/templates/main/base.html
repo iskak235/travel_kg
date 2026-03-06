@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}TravelKG{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+   <header>
+   <div class="logo">
+    Travel<span>KG</span>
+</div>
+    <nav>
+        <a href="{% url 'index' %}">Главная</a>
+        <a href="{% url 'about' %}">О компании</a>
+        <a href="{% url 'tours' %}">Туры</a>
+        <a href="{% url 'contact' %}">Контакты</a>
+    </nav>
+    <button class="btn-call" onclick="openModal()">Заказать звонок</button>
+   </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+  <footer class="creative-footer">
+    <div class="footer-wrap">
+        <div class="f-brand">
+            <h2>Travel<span class="red">KG</span></h2>
+            <p>Ар бир саякат — бул жаңы жашоо. Биз менен эң сонун көз ирмемдерди тосуп алыңыз.</p>
+        </div>
+
+        <div class="f-stats">
+            <div class="stat-item"><strong>10+</strong> <small>жыл тажрыйба</small></div>
+            <div class="stat-item"><strong>5000+</strong> <small>кардарлар</small></div>
+        </div>
+
+        <div id="callbackModal" class="modal-overlay">
+            <div class="modal-glass">
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+                <div class="modal-header">
+                    <h2>Биз сизге <span>чалып жатабыз</span></h2>
+                    <p>Номериңизди калтырыңыз, биз 5 мүнөттүн ичинде байланышабыз.</p>
+                </div>
+
+                <form class="modal-form" method="POST" action="{% url 'callback_request' %}">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <input type="text" name="name" placeholder="Сиздин атыңыз" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="tel" name="phone" placeholder="+996 (___) __ __ __" required>
+                    </div>
+                    <button type="submit" class="btn-submit-pro">Жиберүү</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="f-copyright">
+        &copy; 2026 TravelKG. Бардык укуктар корголгон.
+    </div>
+</footer>
+
+<script>
+    function openModal() {
+        document.getElementById('callbackModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('callbackModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+        let modal = document.getElementById('callbackModal');
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+</script>
+</body>
+</html>

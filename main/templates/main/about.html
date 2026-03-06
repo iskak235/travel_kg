@@ -1,0 +1,96 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'main/css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+<main class="about-page-lux">
+    <section class="about-hero-lux">
+        <div class="hero-bg-overlay"></div>
+        <div class="container">
+            <div class="hero-content-lux">
+                <div class="scroll-reveal">
+                    <span class="badge-mini-gold">Legacy of Travel</span>
+                    <h1 class="premium-title">Биз турларды эмес, <br><span class="text-gradient-gold">жаңы дүйнөнү</span> ачабыз</h1>
+                    <p class="hero-sub-text">Кыргызстандын бийик чокуларынан баштап, дүйнөнүн эң экзотикалык бурчтарына чейинки жол сиздин комфортуңуз үчүн ачылган.</p>
+                </div>
+                <div class="hero-scroll-icon">
+                    <div class="mouse-wheel"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-lux">
+        <div class="container">
+            <div class="stats-grid-lux">
+                <div class="stat-card">
+                    <div class="stat-icon">🏆</div>
+                    <div class="stat-num counter" data-target="10">10</div>
+                    <div class="stat-label">Жылдык Кынтыксыз Тажрыйба</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🌍</div>
+                    <div class="stat-num counter" data-target="150">150+</div>
+                    <div class="stat-label">Автордук Маршруттар</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🤝</div>
+                    <div class="stat-num counter" data-target="98">98%</div>
+                    <div class="stat-label">Бактылуу Саякатчылар</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🛡️</div>
+                    <div class="stat-num">24/7</div>
+                    <div class="stat-label">Глобалдык Коопсуздук</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="details-lux">
+        <div class="container">
+            <div class="details-flex">
+                <div class="details-text-side">
+                    <h2 class="section-title">Биздин Философия — <br><span class="accent">Чексиз Ишеним</span></h2>
+                    <p class="desc-main">2016-жылы биз бир гана максат менен жолго чыкканбыз: саякатты жөнөкөй кызматтан — жогорку искусствого айландыруу. Бүгүнкү күндө биз премиум-сегменттеги туризмдин эталонубуз.</p>
+
+                    <div class="lux-features-v2">
+                        <div class="f-item-v2">
+                            <div class="f-count">01</div>
+                            <div class="f-info">
+                                <h3>Персоналдаштыруу</h3>
+                                <p>Сиздин каалооңуз биздин пландан жогору турат. Ар бир тур индивидуалдык мүнөзгө ээ.</p>
+                            </div>
+                        </div>
+                        <div class="f-item-v2">
+                            <div class="f-count">02</div>
+                            <div class="f-info">
+                                <h3>Эксклюзивдүү Локациялар</h3>
+                                <p>Биз сизди башкалар бара албаган, кол тийбеген табияттын кучагына алып барабыз.</p>
+                            </div>
+                        </div>
+                        <div class="f-item-v2">
+                            <div class="f-count">03</div>
+                            <div class="f-info">
+                                <h3>Эксперттик Коштоо</h3>
+                                <p>Гиддер эмес — тарыхты жана маданиятты жан дүйнөсү менен сезген эксперттер.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details-img-side">
+                    <div class="img-frame-lux">
+
+                        <img src="https://knews.kg/wp-content/uploads/2016/07/kyrgyzstan-tourism-turizm-issyk-kul.jpg" alt="Luxury Travel Team">
+                        <div class="img-border-decor"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

@@ -1,0 +1,121 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="premium-tours-lux">
+    <div class="glow-bg-tours"></div>
+    <div class="container">
+        <div class="section-head-lux">
+            <div class="badge-mini">Travel Secrets</div>
+            <h1>Кыргызстандын <span>Берметтери</span></h1>
+            <p>Жөнөкөй эс алуу эмес, сиздин тарыхыңыздын жаңы бөлүмү</p>
+        </div>
+
+        <div class="tours-grid-lux">
+            <div class="lux-card">
+                <div class="card-inner">
+                    <div class="card-image-box">
+                        <img src="https://central-asia.live/uploads/tours/sary-chelek-view-extended-tour.jpg" alt="Сары-Челек">
+                        <div class="price-tag-lux">12 000 сом</div>
+                    </div>
+                    <div class="card-info-lux">
+                        <h3>Сары-Челек көлү</h3>
+                        <a href="javascript:void(0)" class="btn-lux-card" onclick="openPayment('Сары-Челек көлү', 12000)">Брондоо <span>→</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lux-card">
+                <div class="card-inner">
+                    <div class="card-image-box">
+                        <img src="https://cdn-0.aki.kg/st_runews/9/339739.1.1517834539.jpg" alt="Соң-Көл">
+                        <div class="price-tag-lux">8 500 сом</div>
+                    </div>
+                    <div class="card-info-lux">
+                        <h3>Соң-Көл жайлоосу</h3>
+                        <a href="javascript:void(0)" class="btn-lux-card" onclick="openPayment('Соң-Көл жайлоосу', 8500)">Брондоо <span>→</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lux-card">
+                <div class="card-inner">
+                    <div class="card-image-box">
+                        <img src="https://www.advantour.com/img/kyrgyzstan/lakes/kel-suu-lake.jpg" alt="Көл-Суу">
+                        <div class="price-tag-lux">15 000 сом</div>
+                    </div>
+                    <div class="card-info-lux">
+                        <h3>Көл-Суу керемети</h3>
+                        <a href="javascript:void(0)" class="btn-lux-card" onclick="openPayment('Көл-Суу керемети', 15000)">Брондоо <span>→</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="paymentModal" class="modal-pay-overlay">
+    <div class="modal-pay-glass">
+        <button class="close-pay" onclick="closePayment()">&times;</button>
+        <div class="pay-header">
+            <h2>Төлөмдү <span>тастыктоо</span></h2>
+            <p id="tour-name-display" style="color: #94a3b8; margin-top: 5px;"></p>
+        </div>
+
+        <form id="checkout-form" class="pay-form">
+            <div class="input-pay-group">
+                <label>Картанын номери</label>
+                <input type="text" id="card-num" placeholder="0000 0000 0000 0000" maxlength="19" required>
+            </div>
+            <div class="input-pay-row" style="display: flex; gap: 15px;">
+                <div class="input-pay-group" style="flex: 1;">
+                    <label>Мөөнөтү</label>
+                    <input type="text" placeholder="MM/YY" maxlength="5" required>
+                </div>
+                <div class="input-pay-group" style="flex: 1;">
+                    <label>CVV</label>
+                    <input type="password" placeholder="***" maxlength="3" required>
+                </div>
+            </div>
+            <button type="submit" class="btn-pay-submit">
+                Төлөө: <span id="tour-price-display"></span> сом
+            </button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function openPayment(name, price) {
+        document.getElementById('paymentModal').style.display = 'flex';
+        document.getElementById('tour-name-display').innerText = name;
+        document.getElementById('tour-price-display').innerText = price.toLocaleString();
+    }
+
+    function closePayment() {
+        document.getElementById('paymentModal').style.display = 'none';
+    }
+
+    // Сыртты басканда жабылуу
+    window.onclick = function(event) {
+        let modal = document.getElementById('paymentModal');
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    // Төлөм симуляциясы
+    document.getElementById('checkout-form').onsubmit = function(e) {
+        e.preventDefault();
+        const btn = e.target.querySelector('.btn-pay-submit');
+        btn.innerText = "Төлөм аткарылууда...";
+        btn.style.opacity = "0.7";
+
+        setTimeout(() => {
+            alert("Төлөм ийгиликтүү өттү! Сиздин брондооңуз тастыкталды.");
+            closePayment();
+            btn.innerText = "Төлөө";
+            btn.style.opacity = "1";
+        }, 2000);
+    }
+</script>
+{% endblock %}

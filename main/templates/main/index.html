@@ -1,0 +1,48 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="hero-ultra-lux">
+    <div class="bg-layer">
+        <img src="https://images.unsplash.com/photo-1544085311-11a028465b0c?q=80&w=2000" class="parallax-img" alt="Kyrgyzstan Nature">
+        <div class="dimmer"></div>
+    </div>
+
+    <div class="container hero-flex">
+        <div class="hero-text-pro">
+            <div class="reveal-tag"><span>New</span> Эксклюзивдүү багыттар 2026</div>
+            <h1 class="glitch-title">Кыргызстандын <br><span class="cyan-glow">Берметтери</span></h1>
+            <p class="hero-description">
+                Жөнөкөй эс алып гана тим болбостон, жашооңуздун эң табышмактуу барагын ачыңыз.
+                Биз менен Көл-Суунун аскаларына жана Соң-Көлдүн жылдыздарына саякаттаңыз.
+            </p>
+            <div class="action-row">
+                <a href="{% url 'tours' %}" class="btn-neon-lux">
+                    <span>Турларды көрүү</span>
+                    <div class="dot"></div>
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-cards-stack">
+            <a href="{% url 'tours' %}" class="glass-card card-1" style="text-decoration: none; color: inherit;">
+                <img src="https://images.unsplash.com/photo-1500622944204-b135684e99fd?q=80&w=600" alt="Көл-Суу керемети">
+                <div class="card-info">
+                    <h4>Көл-Суу керемети</h4>
+                    <span>15 000 сом</span>
+                    <p style="color: #00d4ff; font-size: 0.8rem; margin-top: 5px;">Кененирээк →</p>
+                </div>
+            </a>
+
+            <a href="{% url 'tours' %}" class="glass-card card-2" style="text-decoration: none; color: inherit;">
+                <img src="https://cdn-0.aki.kg/st_runews/9/339739.1.1517834539.jpg" alt="Соң-Көл жайлоосу">
+                <div class="card-info">
+                    <h4>Соң-Көл жайлоосу</h4>
+                    <span>8 500 сом</span>
+                    <p style="color: #00d4ff; font-size: 0.8rem; margin-top: 5px;">Кененирээк →</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
