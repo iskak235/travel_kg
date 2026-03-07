@@ -23,13 +23,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-2z*&rg!%vl03^jh=ns6-y1k$u)=$3rgdx%fmh#a2%wjhr)z7j4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# 1. DEBUG режимин өчүрөбүз
+# 1. DEBUG режимин өчүрөбүз
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+# 2. Хостторду аныктайбыз
+ALLOWED_HOSTS = ['travel-kg-5.onrender.com', 'localhost', '127.0.0.1', '10.0.0.0/8'] # Render ички тармагы үчүн 10.0.0.0/8 кошуп коюу сунушталат
 
+# 3. CSRF коопсуздугу
+CSRF_TRUSTED_ORIGINS = ['https://travel-kg-5.onrender.com']
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,8 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
-]
-
+] # <--- Кашаа жабылганын текшериңиз
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',  # Ушул сапты кошуңуз
