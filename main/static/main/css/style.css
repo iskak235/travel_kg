@@ -4233,3 +4233,106 @@ body.dark-mode .modal-glass {
     .desktop-btn { display: none; }
     main { margin-top: 70px; } /* Header текстти жаап калбаш үчүн */
 }
+/* --- ТЕЛЕФОН ҮЧҮН ЭҢ ЫҢГАЙЛУУ ДИЗАЙН --- */
+@media screen and (max-width: 768px) {
+    header {
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        background: rgba(0, 0, 0, 0.9);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        backdrop-filter: blur(10px); /* Арты тунарык айнектей болот */
+    }
+
+    /* Менюну экрандын сыртына (оң жагына) жашыруу */
+    .nav-menu {
+        position: fixed;
+        right: -100%; /* Башында көрүнбөйт */
+        top: 0;
+        width: 80%; /* Экрандын 80% гана ээлейт */
+        height: 100vh;
+        background: #111;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: 0.4s ease-in-out;
+        z-index: 999;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+    }
+
+    /* Меню ачылганда ушул класс кошулат */
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .nav-menu a {
+        font-size: 20px;
+        margin: 15px 0;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* "Заказать звонок" баскычын менюнун астына жайгаштыруу */
+    .mobile-btn {
+        margin-top: 30px;
+        width: 80%;
+    }
+
+    /* Гамбургер баскычы (Үч сызык) */
+    .hamburger {
+        display: block !important;
+        cursor: pointer;
+    }
+
+    /* Башкы беттеги мазмундун ордун оңдоо (Header жаап калбаш үчүн) */
+    main {
+        margin-top: 80px;
+    }
+
+    .tour-card {
+        width: 92% !important;
+        margin: 15px auto !important;
+    }
+}
+@media screen and (max-width: 768px) {
+    /* Header эми ичке болот */
+    header {
+        height: 60px;
+        padding: 0 15px;
+        background: #000;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+
+    /* Меню телефондо экрандын оң жагында жашыруун турат */
+    .nav-menu {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        width: 75%; /* Экрандын 75% гана ээлейт */
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        justify-content: center;
+        transition: 0.4s ease;
+    }
+
+    .nav-menu.active {
+        right: 0; /* Басканда экранга келет */
+    }
+
+    /* Башкы беттеги мазмун жогорудагы header'дин астында калбашы үчүн */
+    main {
+        margin-top: 70px;
+    }
+}

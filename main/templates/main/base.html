@@ -74,6 +74,13 @@
         function closeModal() {
             document.getElementById('callbackModal').style.display = 'none';
         }
+
+        window.onclick = function(event) {
+            let modal = document.getElementById('callbackModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
     </script>
 </body>
 </html>
