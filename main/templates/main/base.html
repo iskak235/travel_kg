@@ -40,7 +40,6 @@
                 <h2>Биз сизге <span>чалып жатабыз</span></h2>
                 <p>Номериңизди калтырыңыз, биз 5 мүнөттүн ичинде байланышабыз.</p>
             </div>
-
             <form class="modal-form" method="POST" action="{% url 'callback_request' %}">
                 {% csrf_token %}
                 <div class="input-group">
@@ -58,34 +57,22 @@
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('nav-menu');
 
-        // Гамбургер баскычын басканда менюну ачуу
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
 
-        // Менюну жабуу функциясы
         function closeMenu() {
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
         }
 
-        // Модалдык терезени ачуу
         function openModal() {
             document.getElementById('callbackModal').style.display = 'flex';
         }
 
-        // Модалдык терезени жабуу
         function closeModal() {
             document.getElementById('callbackModal').style.display = 'none';
-        }
-
-        // Сыртын басканда жабуу
-        window.onclick = function(event) {
-            let modal = document.getElementById('callbackModal');
-            if (event.target == modal) {
-                closeModal();
-            }
         }
     </script>
 </body>
