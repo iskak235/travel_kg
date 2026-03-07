@@ -5247,3 +5247,91 @@ body.dark-mode .modal-glass {
     box-shadow: 0 0 10px rgba(255, 75, 92, 0.3);
     outline: none;
 }
+/* --- МОБИЛДИК ДИЗАЙН --- */
+@media screen and (max-width: 768px) {
+    header {
+        height: 60px;
+        background: rgba(0, 0, 0, 0.9) !important;
+        backdrop-filter: blur(10px);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+        align-items: center;
+    }
+
+    .hamburger {
+        display: flex !important;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        z-index: 1100;
+    }
+
+    .hamburger span {
+        width: 25px;
+        height: 3px;
+        background: #ff4b5c;
+        transition: 0.3s;
+    }
+
+    /* Менюну капталга жашыруу */
+    .nav-menu {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        width: 80%;
+        height: 100vh;
+        background: #111;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1050;
+    }
+
+    .nav-menu.active { right: 0; }
+
+    .nav-menu a {
+        font-size: 20px;
+        margin: 15px 0;
+        color: white;
+    }
+
+    .mobile-btn {
+        display: block !important;
+        background: #ff4b5c;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 50px;
+        margin-top: 20px;
+        font-weight: bold;
+    }
+
+    .desktop-btn { display: none; }
+    main { margin-top: 70px; }
+}
+
+/* Модалдык терезенин стили */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+.modal-glass {
+    background: #222;
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    color: white;
+    text-align: center;
+}
