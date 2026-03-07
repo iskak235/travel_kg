@@ -46,20 +46,31 @@
         </div>
     </div>
 
-   <script>
+ <script>
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
+    const navLinks = document.querySelectorAll('.nav-menu a');
 
-    // Үч сызыкты басканда меню чыгат
+    // Менюну ачуу жана жабуу функциясы
     hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
-        // Баскычты анимациялоо (кошумча)
-        hamburger.classList.toggle('is-active');
+
+        // Баскычтардын кезеги менен чыгуу анимациясы
+        navLinks.forEach((link, index) => {
+            if (link.style.animation) {
+                link.style.animation = '';
+            } else {
+                link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+            }
+        });
     });
 
-    // Шилтемени басканда меню жабылат
+    // Шилтемени басканда менюну жабуу
     function closeMenu() {
+        hamburger.classList.remove('active');
         navMenu.classList.remove('active');
+        navLinks.forEach(link => link.style.animation = '');
     }
 </script>
 </body>
