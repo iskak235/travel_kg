@@ -3660,3 +3660,56 @@ h1.glitch-text {
 .tour-content {
     padding: 15px;
 }
+/* --- МОБИЛДИК ДИЗАЙН (Телефондор үчүн) --- */
+@media (max-width: 768px) {
+    /* Шапканы тигинен тизүү */
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 20px 15px;
+        gap: 15px;
+        text-align: center;
+    }
+
+    /* Логотиптин өлчөмү */
+    .logo {
+        font-size: 24px;
+        letter-spacing: 1px;
+    }
+
+    /* Менюну иретке келтирүү */
+    nav {
+        display: flex;
+        flex-wrap: wrap; /* Элементтер батпай калса кийинки сапка түшөт */
+        justify-content: center;
+        gap: 10px;
+    }
+
+    nav a {
+        font-size: 14px;
+        padding: 6px 12px;
+        background: rgba(255, 255, 255, 0.1); /* Бири-бирине жабышпаш үчүн фон */
+        border-radius: 15px;
+        text-decoration: none;
+    }
+
+    /* Баскычты экрандын туурасына ылайыктоо */
+    .btn-call {
+        width: 100%;
+        max-width: 280px;
+        padding: 12px;
+        font-size: 15px;
+        border-radius: 25px;
+    }
+
+    /* Карточкаларды жана сүрөттөрдү оңдоо */
+    .tour-card {
+        width: 92%;
+        margin: 15px auto;
+    }
+
+    .tour-image img {
+        height: 220px;
+        object-fit: cover;
+    }
+}
