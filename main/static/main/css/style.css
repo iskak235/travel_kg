@@ -3815,3 +3815,106 @@ h1.glitch-text {
         margin-bottom: 20px;
     }
 }
+.messages-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    width: 90%;
+    max-width: 400px;
+}
+
+.alert {
+    padding: 15px 20px;
+    background-color: #2ecc71;
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    font-weight: bold;
+    position: relative;
+    animation: fadeInDown 0.5s ease;
+}
+
+.close-alert {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 20px;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* Түн режими үчүн түстөр */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode header {
+    background-color: #1f1f1f;
+}
+
+body.dark-mode .modal-glass {
+    background: rgba(30, 30, 30, 0.9);
+    color: white;
+}
+
+/* Баскычтын дизайны */
+.theme-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s;
+    margin-left: 15px;
+}
+
+.theme-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Түн режиминде баскычтын өңү */
+body.dark-mode .theme-btn {
+    background: #333;
+    color: #f1c40f;
+}
+/* Түн режиминин стилдери */
+body.dark-mode {
+    background-color: #121212 !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode header {
+    background-color: #1f1f1f;
+}
+
+body.dark-mode .modal-glass {
+    background: #242424;
+    color: white;
+}
+
+/* Түн режими баскычынын дизайны */
+.theme-btn {
+    background: none;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    margin: 0 15px;
+    transition: 0.3s;
+}
+
+.theme-btn:hover {
+    background: rgba(255,255,255,0.1);
+}
