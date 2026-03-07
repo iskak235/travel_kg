@@ -1,84 +1,96 @@
+{% extends 'main/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="ky">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}TravelKG{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-   <header>
-        <div class="logo">Travel<span>KG</span></div>
 
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'main/css/about.css' %}">
+{% endblock %}
 
-        <nav class="nav-menu" id="nav-menu">
-            <a href="{% url 'index' %}" onclick="closeMenu()">Главная</a>
-            <a href="{% url 'about' %}" onclick="closeMenu()">О компании</a>
-            <a href="{% url 'tours' %}" onclick="closeMenu()">Туры</a>
-            <a href="{% url 'contact' %}" onclick="closeMenu()">Контакты</a>
-            <button class="mobile-btn" onclick="openModal(); closeMenu();">Заказать звонок</button>
-        </nav>
-
-        <button class="btn-call desktop-btn" onclick="openModal()">Заказать звонок</button>
-   </header>
-
-    <main>
-        {% block content %}{% endblock %}
-    </main>
-
-    <div id="callbackModal" class="modal-overlay">
-        <div class="modal-glass">
-            <button class="close-modal" onclick="closeModal()">&times;</button>
-            <div class="modal-header">
-                <h2>Биз сизге <span>чалып жатабыз</span></h2>
-                <p>Номериңизди калтырыңыз, биз 5 мүнөттүн ичинде байланышабыз.</p>
+{% block content %}
+<main class="about-page-lux">
+    <section class="about-hero-lux">
+        <div class="hero-bg-overlay"></div>
+        <div class="container">
+            <div class="hero-content-lux">
+                <div class="scroll-reveal">
+                    <span class="badge-mini-gold">Legacy of Travel</span>
+                    <h1 class="premium-title">Биз турларды эмес, <br><span class="text-gradient-gold">жаңы дүйнөнү</span> ачабыз</h1>
+                    <p class="hero-sub-text">Кыргызстандын бийик чокуларынан баштап, дүйнөнүн эң экзотикалык бурчтарына чейинки жол сиздин комфортуңуз үчүн ачылган.</p>
+                </div>
+                <div class="hero-scroll-icon">
+                    <div class="mouse-wheel"></div>
+                </div>
             </div>
-            <form class="modal-form" method="POST" action="{% url 'callback_request' %}">
-                {% csrf_token %}
-                <div class="input-group">
-                    <input type="text" name="name" placeholder="Сиздин атыңыз" required>
-                </div>
-                <div class="input-group">
-                    <input type="tel" name="phone" placeholder="+996 (___) __ __ __" required>
-                </div>
-                <button type="submit" class="btn-submit-pro">Жиберүү</button>
-            </form>
         </div>
-    </div>
+    </section>
 
-    <script>
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('nav-menu');
+    <section class="stats-lux">
+        <div class="container">
+            <div class="stats-grid-lux">
+                <div class="stat-card">
+                    <div class="stat-icon">🏆</div>
+                    <div class="stat-num counter" data-target="10">10</div>
+                    <div class="stat-label">Жылдык Кынтыксыз Тажрыйба</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🌍</div>
+                    <div class="stat-num counter" data-target="150">150+</div>
+                    <div class="stat-label">Автордук Маршруттар</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🤝</div>
+                    <div class="stat-num counter" data-target="98">98%</div>
+                    <div class="stat-label">Бактылуу Саякатчылар</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🛡️</div>
+                    <div class="stat-num">24/7</div>
+                    <div class="stat-label">Глобалдык Коопсуздук</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
+    <section class="details-lux">
+        <div class="container">
+            <div class="details-flex">
+                <div class="details-text-side">
+                    <h2 class="section-title">Биздин Философия — <br><span class="accent">Чексиз Ишеним</span></h2>
+                    <p class="desc-main">2016-жылы биз бир гана максат менен жолго чыкканбыз: саякатты жөнөкөй кызматтан — жогорку искусствого айландыруу. Бүгүнкү күндө биз премиум-сегменттеги туризмдин эталонубуз.</p>
 
-        function closeMenu() {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-        }
+                    <div class="lux-features-v2">
+                        <div class="f-item-v2">
+                            <div class="f-count">01</div>
+                            <div class="f-info">
+                                <h3>Персоналдаштыруу</h3>
+                                <p>Сиздин каалооңуз биздин пландан жогору турат. Ар бир тур индивидуалдык мүнөзгө ээ.</p>
+                            </div>
+                        </div>
+                        <div class="f-item-v2">
+                            <div class="f-count">02</div>
+                            <div class="f-info">
+                                <h3>Эксклюзивдүү Локациялар</h3>
+                                <p>Биз сизди башкалар бара албаган, кол тийбеген табияттын кучагына алып барабыз.</p>
+                            </div>
+                        </div>
+                        <div class="f-item-v2">
+                            <div class="f-count">03</div>
+                            <div class="f-info">
+                                <h3>Эксперттик Коштоо</h3>
+                                <p>Гиддер эмес — тарыхты жана маданиятты жан дүйнөсү менен сезген эксперттер.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        function openModal() {
-            document.getElementById('callbackModal').style.display = 'flex';
-        }
+                <div class="details-img-side">
+                    <div class="img-frame-lux">
 
-        function closeModal() {
-            document.getElementById('callbackModal').style.display = 'none';
-        }
-
-        window.onclick = function(event) {
-            let modal = document.getElementById('callbackModal');
-            if (event.target == modal) { closeModal(); }
-        }
-    </script>
-</body>
-</html>
+                        <img src="https://knews.kg/wp-content/uploads/2016/07/kyrgyzstan-tourism-turizm-issyk-kul.jpg" alt="Luxury Travel Team">
+                        <div class="img-border-decor"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
