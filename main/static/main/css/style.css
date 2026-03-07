@@ -4590,3 +4590,90 @@ body.dark-mode .modal-glass {
     color: #fff;
     text-align: center;
 }
+/* --- ТЕЛЕФОН ҮЧҮН ЭҢ ЫҢГАЙЛУУ ЖАНА ТАЗА ДИЗАЙН --- */
+@media screen and (max-width: 768px) {
+    /* Header-ди ичке жана кооз кылуу */
+    header {
+        height: 60px !important;
+        padding: 0 15px !important;
+        background: #000 !important;
+        position: fixed !important;
+        top: 0;
+        width: 100%;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        z-index: 1000;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Менюну телефондо экрандын сыртына жашыруу */
+    .nav-menu {
+        position: fixed !important;
+        right: -100% !important; /* Экрандын оң жагында жашыруун турат */
+        top: 0;
+        width: 85% !important; /* Экрандын баарын эмес, бир бөлүгүн гана ээлейт */
+        height: 100vh !important;
+        background: #111 !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        padding-top: 50px !important;
+        transition: 0.4s ease-in-out !important;
+        z-index: 2000 !important;
+        display: flex !important;
+    }
+
+    /* Меню ачылганда ушул класс кошулат */
+    .nav-menu.active {
+        right: 0 !important;
+    }
+
+    /* Шилтемелерди иретке келтирүү */
+    .nav-menu a {
+        font-size: 20px !important;
+        margin: 15px 0 !important;
+        display: block !important;
+        text-align: center;
+        color: #fff !important;
+        text-decoration: none;
+    }
+
+    /* Гамбургер баскычы (Үч сызык) */
+    .hamburger {
+        display: flex !important;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        z-index: 2100;
+    }
+
+    .hamburger span {
+        width: 28px;
+        height: 3px;
+        background: #ff4b5c;
+        border-radius: 2px;
+        transition: 0.3s;
+    }
+
+    /* Чоң баскычты жашыруу */
+    .desktop-btn {
+        display: none !important;
+    }
+
+    /* "Заказать звонок" менюнун ичинде */
+    .mobile-btn {
+        display: block !important;
+        width: 80% !important;
+        margin: 20px auto !important;
+        padding: 12px !important;
+        background: #ff4b5c !important;
+        border-radius: 25px !important;
+        color: white !important;
+        font-weight: bold;
+    }
+
+    /* Башкы беттеги текстти төмөн түшүрүү (Header жаап калбашы үчүн) */
+    main, .content-wrapper {
+        margin-top: 70px !important;
+    }
+}
