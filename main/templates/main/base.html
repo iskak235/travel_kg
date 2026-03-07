@@ -56,9 +56,9 @@
             const isActive = navMenu.classList.toggle('active');
             hamburger.classList.toggle('active');
 
-            // Жабуу жазуусун көрсөтүү/жашыруу
+            // "ЗАКРЫТЬ" текстин башкаруу
             closeLabel.style.display = isActive ? 'block' : 'none';
-            // Экранды жылдырбоо
+            // Арткы фонду жылдырбоо
             document.body.style.overflow = isActive ? 'hidden' : 'auto';
         });
 
@@ -70,8 +70,9 @@
         }
 
         function openModal() {
-            // Эгер модалдык терезеңиз болсо, бул жерде ачылат
-            console.log("Модалка ачылды");
+            // Эгер модалдык терезеңиз болсо, ачуу кодун бул жерге жазыңыз
+            const modal = document.getElementById('callbackModal');
+            if(modal) modal.style.display = 'flex';
         }
     </script>
 </body>
