@@ -4902,3 +4902,134 @@ body.dark-mode .modal-glass {
         }
     }
 }
+/* --- МОБИЛДИК МЕНЮ: АЙНЕК ЭФФЕКТИ ЖАНА 16 ШРИФТ --- */
+@media screen and (max-width: 768px) {
+    /* Шапка (Header) */
+    header {
+        height: 60px !important;
+        background: rgba(0, 0, 0, 0.9) !important;
+        backdrop-filter: blur(10px);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    /* Менюнун толук экраны */
+    .nav-menu {
+        position: fixed !important;
+        top: 0;
+        left: -100% !important; /* Башында сол жакта жашыруун */
+        width: 100% !important; /* Экранга толук чыгуу үчүн */
+        height: 100vh !important;
+
+        /* АЙНЕК ФОН */
+        background: rgba(0, 0, 0, 0.3) !important;
+        backdrop-filter: blur(25px) !important;
+        -webkit-backdrop-filter: blur(25px);
+
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        transition: 0.6s cubic-bezier(0.77, 0, 0.175, 1) !important;
+        z-index: 2000 !important;
+    }
+
+    /* Меню ачылганда экрандын ортосуна келет */
+    .nav-menu.active {
+        left: 0 !important;
+    }
+
+    /* ЖАЗУУЛАР: 16 шрифт жана ортодо */
+    .nav-menu a {
+        font-size: 16px !important; /* Сиз сураган шрифт */
+        color: #ffffff !important;
+        text-decoration: none;
+        margin: 20px 0;
+        font-weight: 500;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+
+        /* Жылып чыгуу анимациясы */
+        opacity: 0;
+        transform: translateX(-30px);
+        transition: 0.4s ease;
+    }
+
+    .nav-menu.active a {
+        opacity: 1;
+        transform: translateX(0);
+        /* Ар бир шилтеме кезеги менен чыгат */
+        transition-delay: 0.3s;
+    }
+
+    /* Гамбургер баскычы (Үч сызык) */
+    .hamburger {
+        display: flex !important;
+        flex-direction: column;
+        gap: 6px;
+        cursor: pointer;
+        z-index: 2100;
+    }
+
+    .hamburger span {
+        width: 28px;
+        height: 2px;
+        background: #ff4b5c; /* Кызыл сызыктар */
+        transition: 0.3s;
+    }
+
+    /* X белгисине айлануу */
+    .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    .desktop-btn { display: none !important; }
+}
+/* Жазуулардын жылып чыгуу анимациясы */
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Башында жашыруун */
+        width: 100%; /* Экранга толук чыгуу үчүн */
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        /* АЙНЕК ЭФФЕКТИ */
+        background: rgba(0, 0, 0, 0.4) !important;
+        backdrop-filter: blur(20px) !important;
+        -webkit-backdrop-filter: blur(20px);
+
+        transition: right 0.5s ease-in-out;
+        z-index: 2000;
+    }
+
+    .nav-menu.active {
+        right: 0; /* Меню толук чыгат */
+    }
+
+    .nav-menu a {
+        font-size: 16px !important; /* Сиз каалаган 16 шрифт */
+        opacity: 0; /* Скрипт аркылуу анимацияланмайынча көрүнбөйт */
+    }
+}

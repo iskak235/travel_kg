@@ -45,18 +45,24 @@
             </form>
         </div>
     </div>
-
- <script>
+<script>
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
-    const navLinks = document.querySelectorAll('.nav-menu a');
+    const navLinks = document.querySelectorAll('.nav-menu a, .mobile-btn');
 
-    // Менюну ачуу жана жабуу функциясы
     hamburger.addEventListener('click', () => {
+        // Менюну жана баскычты активдештирүү
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
 
-        // Баскычтардын кезеги менен чыгуу анимациясы
+        // Экранды жылдырбоо (Scroll lock)
+        if (navMenu.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+
+        // Жазуулардын кезеги менен жылган анимациясы
         navLinks.forEach((link, index) => {
             if (link.style.animation) {
                 link.style.animation = '';
@@ -66,10 +72,10 @@
         });
     });
 
-    // Шилтемени басканда менюну жабуу
     function closeMenu() {
         hamburger.classList.remove('active');
         navMenu.classList.remove('active');
+        document.body.style.overflow = 'auto';
         navLinks.forEach(link => link.style.animation = '');
     }
 </script>
