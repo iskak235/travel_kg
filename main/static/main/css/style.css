@@ -5335,3 +5335,95 @@ body.dark-mode .modal-glass {
     color: white;
     text-align: center;
 }
+/* Базалык адаптивдүүлүк */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    position: relative;
+}
+
+/* Мобилдик менюнун баскычы (компьютерде көрүнбөйт) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    width: 30px;
+    height: 3px;
+    background: #333;
+    transition: 0.3s;
+}
+
+/* Телефондор үчүн стиль (768px чейин) */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Баскычты көрсөтүү */
+    }
+
+    nav {
+        position: absolute;
+        top: 100%;
+        left: -100%; /* Жашырып коюу */
+        width: 100%;
+        height: 100vh;
+        background: #fff;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 50px;
+        transition: 0.4s ease;
+        z-index: 1000;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    }
+
+    nav.active {
+        left: 0; /* Менюну чыгаруу */
+    }
+
+    nav a {
+        font-size: 1.2rem;
+        margin: 15px 0;
+    }
+
+    .btn-call {
+        display: none; /* Негизги баскычты жашыруу */
+    }
+
+    .btn-call-mobile {
+        display: block;
+        margin-top: 20px;
+        padding: 10px 25px;
+        background: #ff4d4d;
+        color: white;
+        border: none;
+        border-radius: 5px;
+    }
+
+    /* Footer'ди мобилдикке ылайыктоо */
+    .footer-wrap {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .f-stats {
+        justify-content: center;
+    }
+
+    /* Модалдык терезени кичирейтүү */
+    .modal-glass {
+        width: 90%;
+        padding: 20px;
+    }
+}
+
+/* Компьютерде мобилдик баскычты жашыруу */
+@media (min-width: 769px) {
+    .btn-call-mobile {
+        display: none;
+    }
+}
