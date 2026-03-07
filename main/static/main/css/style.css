@@ -3918,3 +3918,84 @@ body.dark-mode .modal-glass {
 .theme-btn:hover {
     background: rgba(255,255,255,0.1);
 }
+/* --- ТЕЛЕФОН ҮЧҮН ЫҢГАЙЛАШТЫРУУ (Media Queries) --- */
+@media (max-width: 768px) {
+    /* 1. Шапканы (Header) иретке келтирүү */
+    header {
+        padding: 10px 15px;
+        flex-wrap: wrap; /* Элементтер батпай калса, кийинки сапка түшөт */
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 1.2rem; /* Логотипти кичирейтүү */
+    }
+
+    /* 2. Менюну (Nav) кичирейтүү же иретөө */
+    nav {
+        order: 3; /* Менюну үчүнчү сапка түшүрүү */
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        background: rgba(0,0,0,0.05);
+        padding: 5px;
+        border-radius: 8px;
+    }
+
+    nav a {
+        font-size: 0.8rem; /* Менюдагы жазууларды кичирейтүү */
+    }
+
+    /* 3. Баскычтарды (🌙 жана Заказать) иретөө */
+    .theme-btn {
+        padding: 5px 8px;
+        font-size: 14px;
+        margin: 0;
+    }
+
+    .btn-call {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+        white-space: nowrap; /* Жазууну бир сапта кармайт */
+    }
+
+    /* 4. Модалдык терезе телефондо өтө чоң болбошу үчүн */
+    .modal-glass {
+        width: 95% !important;
+        padding: 20px !important;
+        margin: 10px;
+    }
+
+    .modal-header h2 {
+        font-size: 1.2rem;
+    }
+
+    /* 5. Башкы беттеги (Hero) чоң тексттерди кичирейтүү */
+    h1.glitch-title {
+        font-size: 1.8rem !important;
+        line-height: 1.2;
+    }
+
+    .hero-description {
+        font-size: 0.9rem !important;
+    }
+
+    /* 6. Түн/Күн режиминде баары ачык көрүнүшү үчүн */
+    body.dark-mode nav {
+        background: rgba(255,255,255,0.1);
+    }
+}
+
+/* Эң кичинекей телефондор үчүн (360px чейин) */
+@media (max-width: 480px) {
+    header {
+        justify-content: space-around;
+    }
+
+    .logo {
+        width: 100%;
+        text-align: center;
+    }
+}
