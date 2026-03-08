@@ -4578,3 +4578,39 @@ body.dark-mode .modal-glass {
         padding: 40px 5% !important;
     }
 }
+/* БАРДЫК ЭСКИ @media (max-width: 768px) БЛОКТОРУН ӨЧҮРҮП, УШУНУ КОЮҢУЗ */
+@media (max-width: 768px) {
+    /* 1. Мазмунду биринин астына бирин тизүү */
+    .hero-premium, .hero-ultra-lux, .hero-overlay, .hero-container, .hero-flex {
+        display: flex !important;
+        flex-direction: column !important;
+        height: auto !important;
+        min-height: auto !important;
+        padding: 80px 15px 40px 15px !important;
+        text-align: center !important;
+    }
+
+    /* 2. Тексттин өлчөмүн телефонго ылайыктоо */
+    .hero-container h1, .glitch-title {
+        font-size: 1.8rem !important; /* Чоң жазууларды кичирейтебиз */
+        margin-top: 20px !important;
+        position: relative !important;
+    }
+
+    /* 3. Карталарды (Көл-Суу ж.б.) өз ордуна коюу */
+    .hero-cards-stack, .tours-wrapper {
+        position: relative !important; /* Үстүнө чыгып кетүүсүн токтотот */
+        top: 0 !important;
+        display: grid !important;
+        grid-template-columns: 1fr !important; /* Бир тилке кылат */
+        gap: 20px !important;
+        margin-top: 30px !important;
+    }
+
+    /* 4. Картанын ичин оңдоо */
+    .glass-card, .tour-glass-card {
+        width: 100% !important;
+        transform: none !important; /* Эч кандай кыйшаюу болбосун */
+        margin: 0 !important;
+    }
+}
