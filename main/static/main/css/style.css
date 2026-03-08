@@ -6212,3 +6212,227 @@ header {
         transform: translateY(-8px) rotate(-45deg);
     }
 }
+/* --- HERO SECTION МОБИЛДИК ҮЧҮН --- */
+.hero-ultra-lux {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 100px 0 60px 0; /* Header астында калбашы үчүн */
+}
+
+.bg-layer {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
+}
+
+.parallax-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.dimmer {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.3), rgba(0,0,0,0.8));
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Текст бөлүгү */
+.hero-text-pro {
+    flex: 1;
+    color: white;
+}
+
+.glitch-title {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    line-height: 1.1;
+    margin: 20px 0;
+}
+
+.cyan-glow {
+    color: #00d4ff;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    max-width: 500px;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* Карталар (Сүрөттөр) */
+.hero-cards-stack {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: 0.3s;
+}
+
+.glass-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.card-info h4 { margin: 0; font-size: 1.1rem; color: #fff; }
+.card-info span { color: #2ecc71; font-weight: bold; }
+
+/* --- МОБИЛДИК АДАПТАЦИЯ (768px чейин) --- */
+@media (max-width: 768px) {
+    .hero-flex {
+        flex-direction: column; /* Текст жана карталар биринин астына бири түшөт */
+        text-align: center;
+    }
+
+    .hero-text-pro {
+        order: 1;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-cards-stack {
+        order: 2;
+        width: 100%;
+        padding-bottom: 50px;
+    }
+
+    .glass-card {
+        text-align: left; /* Картанын ичиндеги текст солдо калганы жакшы */
+    }
+
+    .action-row {
+        display: flex;
+        justify-content: center;
+    }
+
+    .glitch-title {
+        font-size: 2.8rem;
+    }
+}
+
+/* Неон баскыч стили */
+.btn-neon-lux {
+    display: inline-block;
+    padding: 15px 40px;
+    background: #00d4ff;
+    color: #000;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 50px;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+    transition: 0.3s;
+}
+
+.btn-neon-lux:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.6);
+}
+/* --- ЖАЛПЫ МОБИЛДИК СТИЛДЕР --- */
+@media (max-width: 768px) {
+    /* 1. Сүрөт жайгашкан башкы бөлүм (Hero/Header) */
+    .tour-hero, .tour-header {
+        height: 350px !important; /* Бийиктигин азайттык */
+        padding: 20px !important;
+        border-radius: 0 !important; /* Телефондо бурчтары түз болгону жакшы */
+        margin-top: 0 !important;
+        text-align: center;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .tour-hero h1, .tour-header h1 {
+        font-size: 1.8rem !important; /* Текстти кичирейттик */
+    }
+
+    /* 2. Тез маалыматтар (📍 ⏱ 💰) */
+    .tour-quick-info {
+        display: flex;
+        flex-direction: column; /* Тигинен тизүү */
+        gap: 10px;
+    }
+
+    .tour-quick-info span {
+        margin: 0 !important;
+        font-size: 1rem !important;
+    }
+
+    /* 3. Негизги сетканы (Grid) бир тилкеге айлантуу */
+    .tour-container, .tour-grid-detail {
+        grid-template-columns: 1fr !important; /* Эки тилкеден бир тилкеге */
+        padding: 20px 5% !important;
+        gap: 20px !important;
+    }
+
+    /* 4. Мазмундук блоктор */
+    .tour-main-content, .tour-main-info {
+        padding: 20px !important;
+        order: 2; /* Маалыматты ылдый түшүрөбүз */
+    }
+
+    /* 5. Бронь жасоо бөлүмү (Sidebar) */
+    .booking-sidebar, .tour-sidebar {
+        order: 1; /* Бронь жасоону өйдө чыгарабыз (сатуу үчүн маанилүү) */
+    }
+
+    .booking-card {
+        position: static !important; /* Sticky эффектин алып салабыз */
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    /* 6. Маалымат карталары (💰 ✨) */
+    .info-cards {
+        flex-direction: column; /* Жанынан эмес, астын-үстүн */
+        gap: 10px !important;
+    }
+
+    .i-card {
+        width: 100%;
+    }
+
+    /* 7. Тексттин окулушу */
+    .description, .tour-description {
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+    }
+}
+
+/* Кошумча: Телефондо баскычтарга тийүү оңой болушу үчүн */
+input, .btn-book, .btn-call {
+    min-height: 50px;
+    font-size: 1.1rem !important;
+}
