@@ -6436,3 +6436,148 @@ input, .btn-book, .btn-call {
     min-height: 50px;
     font-size: 1.1rem !important;
 }
+/* --- ЖАЛПЫ МОБИЛДИК СТИЛДЕР --- */
+@media (max-width: 768px) {
+    /* 1. Сүрөт жайгашкан башкы бөлүм (Hero/Header) */
+    .tour-hero, .tour-header {
+        height: 350px !important; /* Бийиктигин азайттык */
+        padding: 20px !important;
+        border-radius: 0 !important; /* Телефондо бурчтары түз болгону жакшы */
+        margin-top: 0 !important;
+        text-align: center;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .tour-hero h1, .tour-header h1 {
+        font-size: 1.8rem !important; /* Текстти кичирейттик */
+    }
+
+    /* 2. Тез маалыматтар (📍 ⏱ 💰) */
+    .tour-quick-info {
+        display: flex;
+        flex-direction: column; /* Тигинен тизүү */
+        gap: 10px;
+    }
+
+    .tour-quick-info span {
+        margin: 0 !important;
+        font-size: 1rem !important;
+    }
+
+    /* 3. Негизги сетканы (Grid) бир тилкеге айлантуу */
+    .tour-container, .tour-grid-detail {
+        grid-template-columns: 1fr !important; /* Эки тилкеден бир тилкеге */
+        padding: 20px 5% !important;
+        gap: 20px !important;
+    }
+
+    /* 4. Мазмундук блоктор */
+    .tour-main-content, .tour-main-info {
+        padding: 20px !important;
+        order: 2; /* Маалыматты ылдый түшүрөбүз */
+    }
+
+    /* 5. Бронь жасоо бөлүмү (Sidebar) */
+    .booking-sidebar, .tour-sidebar {
+        order: 1; /* Бронь жасоону өйдө чыгарабыз (сатуу үчүн маанилүү) */
+    }
+
+    .booking-card {
+        position: static !important; /* Sticky эффектин алып салабыз */
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    /* 6. Маалымат карталары (💰 ✨) */
+    .info-cards {
+        flex-direction: column; /* Жанынан эмес, астын-үстүн */
+        gap: 10px !important;
+    }
+
+    .i-card {
+        width: 100%;
+    }
+
+    /* 7. Тексттин окулушу */
+    .description, .tour-description {
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+    }
+}
+
+/* Кошумча: Телефондо баскычтарга тийүү оңой болушу үчүн */
+input, .btn-book, .btn-call {
+    min-height: 50px;
+    font-size: 1.1rem !important;
+}
+@media (max-width: 768px) {
+    /* 1. Header (Меню) бөлүгүн иретке келтирүү */
+    header {
+        padding: 10px 15px !important;
+        height: 60px;
+    }
+
+    /* 2. Башкы текстти (Hero) оңдоо */
+    .hero-ultra-lux {
+        padding-top: 80px !important; /* Менюнун астына кирбеши үчүн */
+        min-height: auto !important;
+        display: block !important;
+    }
+
+    .glitch-title {
+        font-size: 2rem !important; /* Тексттин өлчөмүн кичирейттик */
+        line-height: 1.2 !important;
+        margin-top: 10px !important;
+        word-wrap: break-word;
+    }
+
+    .hero-description {
+        font-size: 0.95rem !important;
+        padding: 0 10px;
+        margin-bottom: 25px !important;
+    }
+
+    /* 3. Баскычты (Турларды көрүү) оңдоо */
+    .btn-neon-lux {
+        width: 80% !important;
+        padding: 12px 0 !important;
+        font-size: 1rem !important;
+        display: block;
+        margin: 0 auto !important;
+    }
+
+    /* 4. Карталарды (Көл-Суу ж.б.) туура жайгаштыруу */
+    .hero-cards-stack {
+        margin-top: 40px !important;
+        padding: 0 15px !important;
+        gap: 15px !important;
+    }
+
+    .glass-card {
+        flex-direction: column !important; /* Сүрөт өйдөдө, текст ылдыйда */
+        align-items: center;
+        text-align: center;
+        padding: 15px !important;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    .glass-card img {
+        width: 100% !important; /* Сүрөт картанын туурасын толук ээлейт */
+        height: 180px !important;
+        margin-bottom: 10px;
+    }
+
+    /* 5. "TravelKG" деген сыяктуу калкып жүрүүчү тегдерди оңдоо */
+    .reveal-tag {
+        font-size: 0.8rem !important;
+        margin-bottom: 5px !important;
+    }
+
+    /* Ашыкча элементтер бири-бирине тийбеши үчүн */
+    .container {
+        width: 100% !important;
+        padding: 0 !important;
+    }
+}
