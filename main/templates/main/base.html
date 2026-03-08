@@ -9,8 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
- <header>
+   <header>
     <div class="logo">Travel<span>KG</span></div>
 
     <div class="hamburger" id="hamburger">
@@ -20,58 +19,61 @@
     </div>
 
     <nav class="nav-menu" id="nav-menu">
-        <div class="menu-header">
-            <span class="menu-title">МЕНЮ</span>
-            <span class="close-icon" onclick="closeMenu()">&times;</span>
-        </div>
-
-        <div class="menu-list">
-            <a href="{% url 'index' %}" onclick="closeMenu()">Башкы бет</a>
-            <a href="{% url 'about' %}" onclick="closeMenu()">Биз жөнүндө</a>
-            <a href="{% url 'tours' %}" onclick="closeMenu()">Турлар</a>
-            <a href="{% url 'contact' %}" onclick="closeMenu()">Байланыш</a>
-        </div>
-
-        <button class="menu-action-btn" onclick="openModal(); closeMenu();">Чалууну буюртмалоо</button>
+        <a href="{% url 'index' %}" onclick="closeMenu()">Главная</a>
+        <a href="{% url 'about' %}" onclick="closeMenu()">О компании</a>
+        <a href="{% url 'tours' %}" onclick="closeMenu()">Туры</a>
+        <a href="{% url 'contact' %}" onclick="closeMenu()">Контакты</a>
+        <button class="mobile-btn" onclick="openModal(); closeMenu();">Заказать звонок</button>
     </nav>
 
-    <div class="menu-overlay" id="menu-overlay" onclick="closeMenu()"></div>
-</header>
+    <button class="btn-call desktop-btn" onclick="openModal()">Заказать звонок</button>
+   </header>
 
     <main>
         {% block content %}{% endblock %}
     </main>
 
-    <footer class="creative-footer">
-        <div class="footer-wrap">
-            <div class="f-brand">
-                <h2>Travel<span class="red">KG</span></h2>
-                <p>Ар бир саякат — бул жаңы жашоо.</p>
+    <div id="callbackModal" class="modal-overlay">
+        <div class="modal-glass">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <div class="modal-header">
+                <h2>Биз сизге <span>чалып жатабыз</span></h2>
+                <p>Номериңизди калтырыңыз, биз 5 мүнөттүн ичинде байланышабыз.</p>
             </div>
-            <div class="f-stats">
-                <div class="stat-item"><strong>10+</strong> <small>жыл тажрыйба</small></div>
-                <div class="stat-item"><strong>150</strong> <small>кардарлар</small></div>
-            </div>
+            <form class="modal-form" method="POST" action="{% url 'callback_request' %}">
+                {% csrf_token %}
+                <div class="input-group">
+                    <input type="text" name="name" placeholder="Сиздин атыңыз" required>
+                </div>
+                <div class="input-group">
+                    <input type="tel" name="phone" placeholder="+996 (___) __ __ __" required>
+                </div>
+                <button type="submit" class="btn-submit-pro">Жиберүү</button>
+            </form>
         </div>
-        <div class="f-copyright">&copy; 2026 TravelKG.</div>
-    </footer>
+    </div>
 
     <script>
-       const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('nav-menu');
-const overlay = document.getElementById('menu-overlay');
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
 
-hamburger.addEventListener('click', () => {
-    navMenu.classList.add('active');
-    overlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-});
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
 
-function closeMenu() {
-    navMenu.classList.remove('active');
-    overlay.classList.remove('active');
-    document.body.style.overflow = 'auto';
-}
+        function closeMenu() {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
+
+        function openModal() {
+            document.getElementById('callbackModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('callbackModal').style.display = 'none';
+        }
     </script>
 </body>
 </html>

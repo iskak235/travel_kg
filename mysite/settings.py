@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-2z*&rg!%vl03^jh=ns6-y1k$u)=$3rgdx%fmh#a2%wjhr)z7j4
 # SECURITY WARNING: don't run with debug turned on in production!
 # 1. DEBUG режимин өчүрөбүз
 # 1. DEBUG режимин өчүрөбүз
-DEBUG = False
+DEBUG = True
 
 # 2. Хостторду аныктайбыз
 ALLOWED_HOSTS = ['travel-kg-5.onrender.com', 'localhost', '127.0.0.1', '10.0.0.0/8'] # Render ички тармагы үчүн 10.0.0.0/8 кошуп коюу сунушталат
@@ -129,4 +129,4 @@ STATICFILES_DIRS = [
 ] # Бул жерде кашааны жабууну унутпаңыз!
 
 # Файлдарды кысып, серверге даярдоо
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
