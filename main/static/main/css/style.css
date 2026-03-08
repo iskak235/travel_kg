@@ -4501,3 +4501,80 @@ body.dark-mode .modal-glass {
         border-radius: 15px !important;
     }
 }
+/* --- МОБИЛДИК ВЕРСИЯ (ТЕЛЕФОНДОР ҮЧҮН) --- */
+@media (max-width: 768px) {
+
+    /* 1. Header жана Меню */
+    header {
+        padding: 10px 5% !important;
+        height: 70px !important;
+    }
+
+    /* 2. Башкы бөлүм (Hero Section) */
+    .hero-premium, .hero-ultra-lux {
+        height: auto !important;
+        min-height: 100vh !important;
+        padding: 100px 20px 50px 20px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+
+    .hero-container, .hero-flex {
+        display: block !important;
+        width: 100% !important;
+    }
+
+    /* 3. Тексттерди кичирейтүү */
+    .hero-container h1, .glitch-title, .hero-content h1 {
+        font-size: 2.2rem !important; /* Экранга баткыдай өлчөм */
+        line-height: 1.2 !important;
+        margin-bottom: 15px !important;
+    }
+
+    .hero-description, .hero-container p {
+        font-size: 1rem !important;
+        line-height: 1.5 !important;
+        margin-bottom: 25px !important;
+    }
+
+    /* 4. Баскычтар (Buttons) */
+    .hero-btns, .action-row {
+        flex-direction: column !important; /* Баскычтар астын-үстүн тизилет */
+        gap: 15px !important;
+        align-items: center !important;
+    }
+
+    .btn-primary, .btn-secondary, .btn-main, .btn-neon-lux {
+        width: 100% !important; /* Баскыч экрандын туурасын толук ээлейт */
+        max-width: 300px;
+        text-align: center;
+    }
+
+    /* 5. Карталарды (Турлар) тизүү */
+    .tours-wrapper, .destinations-grid, .hero-cards-stack {
+        grid-template-columns: 1fr !important; /* Карталар бирден тизилет */
+        gap: 20px !important;
+        padding: 20px 0 !important;
+    }
+
+    .tour-glass-card, .glass-card, .dest-card {
+        width: 100% !important;
+        margin: 0 auto !important;
+        position: relative !important;
+        top: 0 !important; /* Эгер absolute болсо, аны өчүрөт */
+        transform: none !important; /* Кыйшаюуларды алып салат */
+    }
+
+    /* 6. Сүрөттөрдүн бийиктиги */
+    .tour-image, .dest-img {
+        height: 200px !important;
+    }
+
+    /* 7. Статистика (Stats) */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important; /* 4төн 2ге өтөт */
+        padding: 40px 5% !important;
+    }
+}
