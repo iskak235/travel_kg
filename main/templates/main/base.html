@@ -12,20 +12,7 @@
    <header>
         <div class="logo">Travel<span>KG</span></div>
 
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-
-        <nav class="nav-menu" id="nav-menu">
-            <a href="{% url 'index' %}" onclick="closeMenu()">Главная</a>
-            <a href="{% url 'about' %}" onclick="closeMenu()">О компании</a>
-            <a href="{% url 'tours' %}" onclick="closeMenu()">Туры</a>
-            <a href="{% url 'contact' %}" onclick="closeMenu()">Контакты</a>
-            <hr style="border: 0.5px solid rgba(255,255,255,0.1); width: 100%;">
-            <button class="btn-call-inside" onclick="openModal(); closeMenu();">Заказать звонок</button>
-        </nav>
+        <button class="btn-call" onclick="openModal()">Заказать звонок</button>
    </header>
 
     <main>
@@ -37,12 +24,12 @@
             <button class="close-modal" onclick="closeModal()">&times;</button>
             <div class="modal-header">
                 <h2>Биз сизге <span>чалып жатабыз</span></h2>
-                <p>Номериңизди калтырыңыз, биз байланышабыз.</p>
+                <p>Номериңизди калтырыңыз, биз 5 мүнөттүн ичинде байланышабыз.</p>
             </div>
             <form class="modal-form" method="POST" action="{% url 'callback_request' %}">
                 {% csrf_token %}
                 <div class="input-group">
-                    <input type="text" name="name" placeholder="Атыңыз" required>
+                    <input type="text" name="name" placeholder="Сиздин атыңыз" required>
                 </div>
                 <div class="input-group">
                     <input type="tel" name="phone" placeholder="+996 (___) __ __ __" required>
@@ -53,18 +40,7 @@
     </div>
 
     <script>
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('nav-menu');
-
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-
-        function closeMenu() {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-        }
+        // Менюга тиешелүү JS өчүрүлдү, модалдык терезеники калды
 
         function openModal() {
             document.getElementById('callbackModal').style.display = 'flex';
