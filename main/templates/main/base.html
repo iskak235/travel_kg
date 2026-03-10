@@ -18,13 +18,14 @@
         <span></span>
     </div>
 
-  <nav class="nav-menu" id="nav-menu">
-    <a href="{% url 'index' %}" onclick="closeMenu()">Главная</a>
-    <a href="{% url 'about' %}" onclick="closeMenu()">О компании</a>
-    <a href="{% url 'tours' %}" onclick="closeMenu()">Туры</a>
-    <a href="{% url 'contact' %}" onclick="closeMenu()">Контакты</a>
-    <button class="mobile-btn" onclick="openModal(); closeMenu();">Заказать звонок</button>
-</nav>
+    <nav class="nav-menu" id="nav-menu">
+        <a href="{% url 'index' %}" onclick="closeMenu()">Главная</a>
+        <a href="{% url 'about' %}" onclick="closeMenu()">О компании</a>
+        <a href="{% url 'tours' %}" onclick="closeMenu()">Туры</a>
+        <a href="{% url 'contact' %}" onclick="closeMenu()">Контакты</a>
+        <button class="mobile-btn" onclick="openModal(); closeMenu();">Заказать звонок</button>
+    </nav>
+
     <button class="btn-call desktop-btn" onclick="openModal()">Заказать звонок</button>
    </header>
 

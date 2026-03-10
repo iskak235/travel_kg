@@ -104,11 +104,15 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/6.0/topics/i18n/
+    # Internationalization
+    # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-
+# Башка жөндөөлөрдүн астында, эң сол четинде болушу шарт
+LANGUAGES = [
+    ('ky', 'Kyrgyz'),
+    ('ru', 'Russian'),
+    ('en', 'English'),
+]
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
