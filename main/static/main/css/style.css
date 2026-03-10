@@ -6051,3 +6051,71 @@ header {
     .desktop-btn { display: none; }
     main { margin-top: 70px; } /* Header текстти жаап калбаш үчүн */
 }
+/* Базалык header стили */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Телефондор үчүн адаптация */
+@media (max-width: 768px) {
+    /* "Заказать звонок" баскычын компьютердик версияда жашыруу, телефондо көрсөтүү */
+    .desktop-btn {
+        display: none;
+    }
+
+    .hamburger {
+        display: block; /* Гамбургерди көрсөтөбүз */
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    /* Меню телефондо экранды толук жаап же капталдан чыгат */
+    .nav-menu {
+        position: fixed;
+        left: -100%; /* Башында жашыруун турат */
+        top: 0;
+        flex-direction: column;
+        background: #fff;
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+        transition: 0.3s;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .nav-menu.active {
+        left: 0; /* Меню ачылганда экрандын ортосуна келет */
+    }
+
+    .nav-menu a {
+        font-size: 22px;
+        display: block;
+    }
+
+    /* Модалдык терезе (Callback) телефонго ылайыктуу */
+    .modal-glass {
+        width: 90% !important; /* Экрандын 90% ээлейт */
+        padding: 20px;
+        margin: auto;
+    }
+}
+
+/* Гамбургер анимациясы */
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
