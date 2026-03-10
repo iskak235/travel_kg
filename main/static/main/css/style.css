@@ -1,4 +1,12 @@
-/* 1. Базалык орнотуулар */
+/* 1. Жалпы жөндөөлөр */
+:root {
+    --primary-color: #ff4d4d; /* Сиздин негизги түсүңүз */
+    --dark-color: #2c3e50;
+    --light-bg: #f8f9fa;
+    --white: #ffffff;
+    --transition: all 0.3s ease;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,150 +15,178 @@
 }
 
 body {
-    background-color: #f8f9fa;
-    color: #333;
-    line-height: 1.6;
+    background-color: var(--light-bg);
+    color: var(--dark-color);
+    overflow-x: hidden; /* Капталга чоюлуп кетпеши үчүн */
 }
 
-/* 2. Header жана Navigation */
+/* 2. Header жана Навигация */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 8%;
-    background: #ffffff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 15px 5%;
+    background: var(--white);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 700;
-    color: #2c3e50;
     text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
 .logo span {
-    color: #ff4d4d;
+    color: var(--primary-color);
 }
 
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 25px;
 }
 
 .nav-menu a {
     text-decoration: none;
-    color: #2c3e50;
+    color: var(--dark-color);
     font-weight: 500;
-    transition: 0.3s;
+    transition: var(--transition);
 }
 
 .nav-menu a:hover {
-    color: #ff4d4d;
+    color: var(--primary-color);
 }
 
-/* Баскычтар */
+/* 3. Баскычтар (Buttons) */
 .btn-call, .btn-submit-pro, .mobile-btn {
-    background: #ff4d4d;
-    color: #fff;
+    background: var(--primary-color);
+    color: var(--white);
     border: none;
-    padding: 10px 20px;
+    padding: 10px 22px;
     border-radius: 50px;
-    cursor: pointer;
     font-weight: 600;
-    transition: 0.3s;
+    cursor: pointer;
+    transition: var(--transition);
 }
 
-.btn-call:hover {
+.btn-call:hover, .btn-submit-pro:hover {
     background: #e63939;
     transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 77, 77, 0.3);
 }
 
 .mobile-btn {
-    display: none; /* Компьютерде жашыруун */
+    display: none; /* Ноутбукта жашырылат */
 }
 
-/* 3. Гамбургер меню (Телефон үчүн) */
+/* 4. Гамбургер (Телефон үчүн) */
 .hamburger {
     display: none;
     flex-direction: column;
-    gap: 6px;
+    gap: 5px;
     cursor: pointer;
+    z-index: 1100;
 }
 
 .hamburger span {
-    width: 28px;
+    width: 25px;
     height: 3px;
-    background: #333;
+    background: var(--dark-color);
     border-radius: 2px;
-    transition: 0.4s;
+    transition: var(--transition);
 }
 
-/* 4. Мобилдик версия (Adaptive) */
+/* 5. МОБИЛДИК ВЕРСИЯ (Телефондор үчүн - 768px чейин) */
 @media (max-width: 768px) {
-    header {
-        padding: 15px 20px;
-    }
-
     .hamburger {
         display: flex;
     }
 
     .desktop-btn {
-        display: none;
+        display: none; /* Ноутбуктагы кнопканы жашыруу */
     }
 
     .nav-menu {
         position: fixed;
         top: 0;
         right: -100%; /* Оң тарапка жашыруу */
-        width: 80%;
+        width: 75%;
         height: 100vh;
-        background: #fff;
+        background: var(--white);
         flex-direction: column;
         justify-content: center;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-        transition: 0.5s ease-in-out;
+        box-shadow: -10px 0 20px rgba(0,0,0,0.1);
+        transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     }
 
     .nav-menu.active {
-        right: 0; /* Меню ачылганда */
+        right: 0; /* Меню ачылганда экранга келет */
+    }
+
+    .nav-menu a {
+        font-size: 1.2rem;
+        margin: 10px 0;
     }
 
     .mobile-btn {
-        display: block;
+        display: block; /* Телефондо менюнун ичинде чыгат */
         margin-top: 20px;
     }
 
-    /* Гамбургер X болуп өзгөрүшү */
-    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translateY(12px); }
+    /* Гамбургердин X белгисине айланышы */
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translateY(11px); }
     .hamburger.active span:nth-child(2) { opacity: 0; }
-    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translateY(-12px); }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translateY(-11px); }
 }
 
-/* 5. Модалдык терезе (Callback) */
+/* 6. Турлардын карточкалары (Grid) */
+.tours-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 40px 5%;
+}
+
+.tour-card {
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: var(--transition);
+}
+
+.tour-card:hover {
+    transform: translateY(-8px);
+}
+
+.tour-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+/* 7. Модалдык терезе (Callback) */
 .modal-overlay {
     display: none;
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(5px);
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
     justify-content: center;
     align-items: center;
     z-index: 2000;
+    padding: 20px;
 }
 
 .modal-glass {
-    background: #fff;
-    padding: 40px;
+    background: var(--white);
+    padding: 30px;
     border-radius: 20px;
-    width: 90%;
+    width: 100%;
     max-width: 400px;
     position: relative;
     text-align: center;
@@ -158,70 +194,70 @@ header {
 
 .close-modal {
     position: absolute;
-    top: 15px; right: 20px;
-    font-size: 30px;
-    background: none; border: none;
+    top: 15px; right: 15px;
+    font-size: 1.5rem;
     cursor: pointer;
+    border: none; background: none;
 }
+/* Мобилдик менюнун негизги стили */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Башында экрандын оң жагында жашыруун турат */
+        width: 80%; /* Экрандын 80% ээлейт */
+        height: 100vh;
+        background-color: #ffffff;
+        display: flex;
+        flex-direction: column; /* Элементтерди тигинен тизет */
+        align-items: center;
+        justify-content: center;
+        gap: 25px; /* Шилтемелердин ортосундагы боштук */
+        transition: 0.4s ease-in-out;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
 
-.modal-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 20px;
-}
+    /* Меню активдүү болгондо (ачылганда) */
+    .nav-menu.active {
+        right: 0;
+    }
 
-.modal-form input {
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    outline: none;
-}
+    /* Менюдагы шилтемелердин стили */
+    .nav-menu a {
+        font-size: 20px;
+        font-weight: 600;
+        color: #333;
+        text-decoration: none;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
 
-.modal-form input:focus {
-    border-color: #ff4d4d;
-}
-/* 6. Турлардын карточкалары (Grid System) */
-.tours-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Компьютерде 3 катар */
-    gap: 25px;
-    padding: 40px 8%;
-}
+    /* Шилтемени басканда бир аз өңү өзгөрөт */
+    .nav-menu a:active {
+        background-color: #f8f9fa;
+        color: #ff4d4d;
+    }
 
-.tour-card {
-    background: #fff;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    transition: 0.3s;
-}
-
-.tour-card:hover {
-    transform: translateY(-10px);
-}
-
-.tour-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover; /* Сүрөттү чоюп салбайт */
-}
-
-.tour-content {
-    padding: 20px;
-}
-
-/* --- Турлар үчүн мобилдик адаптация --- */
-@media (max-width: 992px) {
-    .tours-container {
-        grid-template-columns: repeat(2, 1fr); /* Планшетте 2 катар */
-        padding: 30px 5%;
+    /* Телефондогу "Заказать звонок" баскычы */
+    .mobile-btn {
+        display: block !important; /* Телефондо көрсөтүү */
+        width: 80%;
+        padding: 15px;
+        font-size: 18px;
+        background-color: #ff4d4d;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        margin-top: 20px;
+        cursor: pointer;
     }
 }
 
-@media (max-width: 600px) {
-    .tours-container {
-        grid-template-columns: 1fr; /* Телефондо 1 катар */
-        padding: 20px 15px;
+/* Ноутбукта (чоң экранда) мобилдик баскычты жашыруу */
+@media (min-width: 769px) {
+    .mobile-btn {
+        display: none;
     }
 }
